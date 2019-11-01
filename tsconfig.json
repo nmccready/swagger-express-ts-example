@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "esModuleInterop": true,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "ES6",
+    "experimentalDecorators": true,
+    "sourceMap": false,
+    "declaration": true,
+    "noResolve": false,
+    "moduleResolution": "node",
+    "rootDir": "./",
+    "outDir": ".tmp"
+  },
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
