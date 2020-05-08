@@ -6,5 +6,5 @@ import { MiddlewareLoader } from './internals';
 export * from './internals';
 
 export const middlewares = (app: Application) => {
-  each<MiddlewareLoader>(swagger, v => v(app));
+  each<MiddlewareLoader>(swagger, (v) => v(app));
 };

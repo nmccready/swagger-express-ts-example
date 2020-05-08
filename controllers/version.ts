@@ -1,41 +1,40 @@
-import { Request, Response, NextFunction } from 'express';
-import {
-  interfaces,
-  controller,
-  httpGet,
-  httpPost
-} from 'inversify-express-utils';
-import { injectable } from 'inversify';
+import { Request, Response } from 'express';
+import { interfaces, httpGet, httpPost, controller } from 'inversify-express-utils';
+import { injectable,  } from 'inversify';
 import {
   ApiPath,
   ApiOperationGet,
   ApiOperationPost,
-  SwaggerDefinitionConstant
+  SwaggerDefinitionConstant,
 } from 'swagger-express-ts';
 
+import { getApiPath } from '../api';
+
+const path = getApiPath('versions');
+
 @ApiPath({
-  path: '/versions',
+  path,
   name: 'Version',
-  security: { basicAuth: [] }
+  security: { basicAuth: [] },
 })
-// @controller('/versions')
+@controller(path)
 @injectable()
 export class VersionController implements interfaces.Controller {
-  public static TARGET_NAME: string = 'VersionController';
+  public static TARGET_NAME = 'VersionController';
 
   private data = [
     {
       id: '1',
       name: 'Version 1',
       description: 'Description Version 1',
-      version: '1.0.0'
+      version: '1.0.0',
     },
     {
       id: '2',
       name: 'Version 2',
       description: 'Description Version 2',
-      version: '2.0.0'
-    }
+      version: '2.0.0',
+    },
   ];
 
   @ApiOperationGet({
@@ -45,18 +44,18 @@ export class VersionController implements interfaces.Controller {
       200: {
         description: 'Success',
         type: SwaggerDefinitionConstant.Response.Type.ARRAY,
-        model: 'Version'
-      }
+        model: 'Version',
+      },
     },
     security: {
-      apiKeyHeader: []
-    }
+      apiKeyHeader: [],
+    },
   })
   @httpGet('/')
   public getVersions(
     request: Request,
-    response: Response,
-    next: NextFunction
+    response: Response
+    // next: NextFunction
   ): void {
     response.json(this.data);
   }
@@ -65,18 +64,18 @@ export class VersionController implements interfaces.Controller {
     description: 'Post version object',
     summary: 'Post new version',
     parameters: {
-      body: { description: 'New version', required: true, model: 'Version' }
+      body: { description: 'New version', required: true, model: 'Version' },
     },
     responses: {
       200: { description: 'Success' },
-      400: { description: 'Parameters fail' }
-    }
+      400: { description: 'Parameters fail' },
+    },
   })
   @httpPost('/')
   public postVersion(
     request: Request,
-    response: Response,
-    next: NextFunction
+    response: Response
+    // next: NextFunction
   ): void {
     if (!request.body) {
       return response.status(400).end();

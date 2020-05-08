@@ -2,25 +2,25 @@ import { ApiModel, ApiModelProperty } from 'swagger-express-ts';
 
 @ApiModel({
   description: 'Version description',
-  name: 'Version'
+  name: 'Version',
 })
 export class VersionModel {
   @ApiModelProperty({
     description: 'Id of version',
     required: true,
-    example: ['123456789']
+    example: ['123456789'],
   })
   id: number;
 
   @ApiModelProperty({
     description: '',
-    required: true
+    required: true,
   })
   name: string;
 
   @ApiModelProperty({
     description: 'Description of version',
-    required: true
+    required: true,
   })
   description: string;
 }
