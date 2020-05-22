@@ -5,5 +5,5 @@ import { rootDebug } from '../debug';
 const debug = rootDebug.spawn('routes');
 
 export default (app: Application) => {
-  loadAll([import('./hi')], { app, debug });
+  loadAll([import('./hi'), import('./foods')], { app, debug });
 };

@@ -15,7 +15,8 @@
     "moduleResolution": "node",
     "rootDir": "./",
     "outDir": ".tmp",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "allowJs": true
   },
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
