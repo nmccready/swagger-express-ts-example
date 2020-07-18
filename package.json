@@ -35,7 +35,7 @@
     "inversify": "^4.13.0",
     "inversify-express-utils": "^4.2.2",
     "knex": "^0.21.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "passport": "0.4.0",
     "passport-google-oauth": "2.0.0",
     "pg": "^8.2.1",
