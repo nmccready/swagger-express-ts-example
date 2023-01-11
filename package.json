@@ -34,7 +34,7 @@
     "foreman": "^3.0.1",
     "inversify": "^4.13.0",
     "inversify-express-utils": "^4.2.2",
-    "knex": "^0.21.1",
+    "knex": "^2.4.0",
     "lodash": "^4.17.21",
     "passport": "0.4.0",
     "passport-google-oauth": "2.0.0",
